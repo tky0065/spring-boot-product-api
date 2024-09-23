@@ -1,9 +1,7 @@
 package com.enokdev.tacknoteapi.categorie;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.enokdev.tacknoteapi.product.Product;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +10,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -29,6 +28,8 @@ public class Categorie {
     private Date createdAt;
     @LastModifiedDate
      private Date updatedAt;
+    @OneToMany(mappedBy = "categorie")
+    private List<Product> products;
 
 
 }

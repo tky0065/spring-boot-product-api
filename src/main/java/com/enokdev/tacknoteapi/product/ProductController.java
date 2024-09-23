@@ -15,22 +15,22 @@ public class ProductController {
 
 
     @PostMapping("/products")
-    public ResponseEntity<Product> saveCategory(@RequestBody ProductDto productsDto){
+    public ResponseEntity<Product> saveProduct(@RequestBody ProductDto productsDto){
         return ResponseEntity.ok(productService.save(productsDto));
     }
 
     @GetMapping("/products/{id}")
-    public ResponseEntity<ProductDto> getCategory(@PathVariable Long id){
+    public ResponseEntity<ProductDto> getProduct(@PathVariable Long id){
         return ResponseEntity.ok(productService.findProductById(id));
     }
 
     @GetMapping("/products")
-    public ResponseEntity<List<ProductDto>> getAllproductss(){
+    public ResponseEntity<List<ProductDto>> getAllProducts(){
         return ResponseEntity.ok(productService.findAllProducts());
     }
 
     @DeleteMapping("/products/{id}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable Long id){
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
         productService.deleteProductById(id);
         return ResponseEntity.accepted().build();
 

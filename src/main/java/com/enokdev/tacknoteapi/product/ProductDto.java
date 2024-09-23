@@ -21,7 +21,7 @@ public class ProductDto {
     private String description;
     private int price;
     private Long categoryId;
-    private CategorieDto categorie;
+
 
     public static Product toProduct(ProductDto productDto) {
         return Product.builder()
@@ -41,7 +41,6 @@ public class ProductDto {
                 .description(product.getDescription())
                 .price(product.getPrice())
                 .categoryId(product.getCategorie().getId())
-
                 .build();
     }
 
