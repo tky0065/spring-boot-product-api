@@ -1,7 +1,7 @@
 package com.enokdev.tacknoteapi.categorie;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,5 +26,12 @@ public class CategorieController {
     @GetMapping("/categories")
     public ResponseEntity<List<CategorieDto>> getAllCategories(){
         return ResponseEntity.ok(categorieService.getAllCategories());
+    }
+
+    @DeleteMapping("/categories/{id}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable Long id){
+        categorieService.deleteCategorie(id);
+        return ResponseEntity.accepted().build();
+
     }
 }

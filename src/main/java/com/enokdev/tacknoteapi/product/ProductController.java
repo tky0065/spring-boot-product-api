@@ -28,4 +28,11 @@ public class ProductController {
     public ResponseEntity<List<ProductDto>> getAllproductss(){
         return ResponseEntity.ok(productService.findAllProducts());
     }
+
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable Long id){
+        productService.deleteProductById(id);
+        return ResponseEntity.accepted().build();
+
+    }
 }
